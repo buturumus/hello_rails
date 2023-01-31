@@ -1,0 +1,32 @@
+<%# app/views/movies/_topper.html.erb %>
+
+<h3>Primitive internet movies catalog</h3>
+<div>
+  <%= link_to "Movies", movies_path %>
+</div>
+<div>
+  <%= link_to "Categories", categories_path %>
+</div>
+<% if user_signed_in? %>
+
+  <div>
+    You signed in as <%= current_user.email%>
+  </div>
+  <div>
+    <%= link_to "My categories", panel_categories_path %>
+  </div>
+  <div>
+    <%= link_to "My movies", panel_movies_path %>
+  </div>
+  <div>
+    <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+  </div>
+
+<% else %>
+
+  <div>
+    <%= link_to "Sign in", new_user_session_path %>
+  </div>
+
+<% end %>
+

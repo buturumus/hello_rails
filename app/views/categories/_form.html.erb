@@ -1,0 +1,15 @@
+<%# app/views/categories/_form.html.erb %>
+
+<%= form_with model: category do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

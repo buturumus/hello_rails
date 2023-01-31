@@ -1,0 +1,13 @@
+<%# app/views/categories/edit.html.erb %>
+
+<h1>Edit category</h1>
+
+<%= render "form", category: @category %>
+<%= link_to "Delete category",
+  category_path(@category),
+  data: {
+    turbo_method: :delete,
+    turbo_confirm: "Really?",
+  }
+%>
+

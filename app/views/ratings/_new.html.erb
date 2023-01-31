@@ -1,0 +1,11 @@
+<%# app/ratings/movies/_new.html.erb %>
+
+<% for i in 1..10 do %>
+  <%= render "ratings/form",
+             movie: movie,
+             rating: movie.ratings.build,
+             star: "&#9734;",
+             i: i
+  %>
+<% end %>
+

@@ -1,0 +1,19 @@
+<%# app/views/ratings/_form.html.erb %>
+
+<%= form_with model: [movie, rating],
+              # format: :js,
+              :html => { :style => 'display: inline-block;' },
+              local: false do |form| %>
+
+  <span hidden>
+    <%= form.number_field :score, value: i %>
+  </span>
+  
+  <%#= form.submit star.html_safe, type: :submit %> 
+
+  <%= link_to star.html_safe,
+              "",
+              :onclick => "$(this).closest('form').submit()"
+  %>
+
+<% end %>

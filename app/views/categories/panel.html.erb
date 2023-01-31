@@ -1,0 +1,19 @@
+<%# app/views/categories/panel.html.erb %>
+
+<%= render "layouts/topper" %>
+
+<% if user_signed_in? %>
+  <p>
+    <%= link_to "+ Add new category", new_category_path %>
+  </p>
+  <h1>My categories</h1>
+  <ul>
+    <% @categories.each do |category| %>
+      <li>
+        <%= category.name %>
+        - <%= link_to " edit", edit_category_path(category) %><br>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+

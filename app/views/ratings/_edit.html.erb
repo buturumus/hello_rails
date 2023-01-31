@@ -1,0 +1,21 @@
+<%# app/views/ratings/_edit.html.erb %>
+
+<% movie = Movie.friendly.find(rating.movie_id) %>
+<% own_stars = rating.score ? rating.score : 0 %>
+<% for i in 1..own_stars do %>
+  <%= render "ratings/form",
+              movie: Movie.friendly.find(rating.movie_id),
+              rating: rating,
+              star: "&#9733;",
+              i: i
+  %>
+<% end %>
+<% for i in (own_stars + 1)..10 do %>
+  <%= render "ratings/form",
+              movie: Movie.friendly.find(rating.movie_id),
+              rating: rating,
+              star: "&#9734;",
+              i: i
+  %>
+<% end %>
+

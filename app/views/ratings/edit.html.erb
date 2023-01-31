@@ -1,0 +1,11 @@
+<%# app/views/ratings/edit.html.erb %>
+
+<h1>Edit rating</h1>
+
+<%= render "form", movie: @rating.movie, rating: @rating %>
+
+<%# button_to "Del",
+              movie_rating_path(movie: @rating.movie, rating: @rating),
+              method: :delete
+%>
+

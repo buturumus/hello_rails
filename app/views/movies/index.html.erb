@@ -1,0 +1,17 @@
+<%# app/views/movies/index.html.erb %>
+
+<%#= javascript_include_tag "jquery.min.js" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+></script>
+
+<%= render "layouts/topper" %>
+
+<h1>Movies</h1>
+<%= paginate @movies %>
+
+<ul>
+  <%= render "movies/movies", movies: @movies %>
+</ul>
+
+<%= paginate @movies %>
+

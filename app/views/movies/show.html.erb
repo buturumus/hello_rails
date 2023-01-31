@@ -1,0 +1,34 @@
+<%# app/views/movies/show.html.erb %>
+
+<%= render "layouts/topper" %>
+
+<h1><%= @movie.title %></h1>
+<h3>Description</h3>
+<p>
+  <%= @movie.description %>
+</p>
+
+<% if user_signed_in? && @movie.user_id == current_user.id %>
+  <ul>
+    <li>
+      <%= link_to "Edit movie", edit_movie_path(@movie) %>
+    </li>
+    <li>
+      <%= link_to "Delete movie",
+        movie_path(@movie),
+        data: {
+          turbo_method: :delete,
+          turbo_confirm: "You're shure?",
+        }
+      %>
+    </li>
+  </ul>
+<% end %>
+
+<p>
+<h3>Categories</h3>
+<ul>
+  <%= render "categories/categories", categories: @movie.categories %>
+</ul>
+</p>
+

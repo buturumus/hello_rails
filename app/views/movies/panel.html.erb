@@ -1,0 +1,20 @@
+<%# app/views/movies/panel.html.erb %>
+
+<%= render "layouts/topper" %>
+
+<% if user_signed_in? %>
+  <p>
+    <%= link_to "+ Add new movie", new_movie_path %>
+  </p>
+  <h1>My movies</h1>
+  <ul>
+    <% for movie in @movies do %>
+      <li>
+        <h4>
+          <%= link_to movie.title, movie %><br>
+        </h4>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+

@@ -1,0 +1,54 @@
+<%# app/views/movies/_form.html.erb %>
+
+<%= form_with model: movie do |form| %>
+  <p>
+    <%= form.label :title %>
+    <br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :description %>
+    <br>
+    <%= form.text_field :description %>
+  </p>
+
+  Categories: <br>
+  <ul>
+    <%= render "categories/categories", categories: movie.categories %>
+  </ul>
+
+  <p>
+    <% if movie.absent_categories.length >= 1 %>
+      <div>
+        Add category:
+      </div>
+      <div>
+        <%= form.collection_select(
+          :add_category_ids,
+          movie.absent_categories,
+          :id, :name,
+          :include_blank => true
+        )%>
+      </div>
+    <% end %>
+
+    <% if movie.category_ids.length > 1 %>
+      <div>
+        Delete category:
+      </div>
+      <div>
+        <%= form.collection_select(
+          :del_category_ids,
+          movie.categories,
+          :id, :name,
+          :include_blank => true
+        )%>
+      </div>
+    <% end %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

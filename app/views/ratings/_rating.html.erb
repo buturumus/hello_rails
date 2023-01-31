@@ -1,0 +1,8 @@
+<%# app/views/ratings/_rating.html.erb %>
+
+<%= link_to "#{rating.score.to_s} personal",
+            edit_movie_rating_path(
+              rating, :movie_id => rating.movie.id
+            )
+%>
+

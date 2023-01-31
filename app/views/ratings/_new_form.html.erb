@@ -1,0 +1,15 @@
+<%# app/views/ratings/_new_form.html.erb %>
+
+<%= form_with model: [movie, movie.ratings.build] do |form| %>
+
+  <div>
+    <%= form.label :score %>
+    <br>
+    <%= form.number_field :score %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

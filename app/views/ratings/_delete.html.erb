@@ -1,0 +1,8 @@
+<%# app/views/ratings/_delete.html.erb %>
+
+<div>
+  <%= link_to "Remove my rating",
+              [movie, Rating.find_mine(movie, current_user)],
+              data: {turbo_method: :delete}
+  %>
+</div>

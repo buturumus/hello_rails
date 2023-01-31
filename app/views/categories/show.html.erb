@@ -1,0 +1,19 @@
+<%# app/views/categories/show.html.erb %>
+
+<%= render "layouts/topper" %>
+
+<h2>Movies in category <%= @category.name %>:</h2>
+
+<ul>
+  <% for movie in Category.friendly.find(@category.id).movies do %>
+    <li>
+      <h4>
+        <%= link_to movie.title, movie %><br>
+      </h4>
+      <div>
+        Average rating is <%= movie.avg_rating %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+

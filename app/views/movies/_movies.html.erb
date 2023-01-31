@@ -1,0 +1,35 @@
+<%# app/views/movies/_movies.html.erb %>
+
+<% movies.each do |movie| %>
+  <li>
+    <h2>
+      <%= link_to movie.title, movie %><br>
+    </h2>
+
+    <div>
+      <% if user_signed_in? %>
+        <%= render "movies/ratings", movie: movie, current_user: current_user %>
+      <% else %>
+        <div>
+          Average rating is <%= movie.avg_rating %>
+        </div>
+      <% end %>
+    </div>
+
+    <p>
+      Author:
+      <%= movie.user.email %>
+    </p>
+
+    <p>
+      <h4>
+        Categories:
+      </h4>
+      <ul>
+        <%= render "categories/categories", categories: movie.categories %>
+      </ul>
+    </p>
+  </li>
+
+<% end %>
+

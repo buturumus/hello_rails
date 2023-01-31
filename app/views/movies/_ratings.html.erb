@@ -1,0 +1,15 @@
+<%# app/views/movies/_ratings.html.erb %>
+
+<div>
+   Average rating is <%= movie.avg_rating %>
+</div>
+<div>
+  Set my rating:
+</div>
+<% if Rating.find_mine(movie, current_user) != 0 %>
+  <%= render "ratings/edit", rating: Rating.find_mine(movie, current_user) %>
+  <%= render "ratings/delete", movie: movie, current_user: current_user %>
+<% else %> 
+  <%= render "ratings/new", movie: movie %>
+<% end %> 
+

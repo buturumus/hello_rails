@@ -1,0 +1,8 @@
+<%# app/views/categories/_categories.html.erb %>
+
+<% categories.each do |category| %>
+  <li>
+    <%= link_to category.name, category %><br>
+  </li>
+<% end %>
+
